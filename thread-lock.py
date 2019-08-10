@@ -9,6 +9,8 @@ class myThread (threading.Thread):
         self.counter = counter
 
     def run(self):
+        threadLock = threading.Lock()
+
         print ("Starting " + self.name)
 
         threadLock.acquire()
@@ -24,7 +26,6 @@ def print_time(threadName, delay, counter):
         counter -= 1
 
 def main():
-    threadLock = threading.Lock()
     threads = []
 
     thread1 = myThread(1, "Thread-1", 1)
